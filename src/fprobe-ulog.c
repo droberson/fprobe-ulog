@@ -662,7 +662,7 @@ void *emit_thread()
 		flows_emit = flows_emit->next;
 #if ((DEBUG) & DEBUG_I)
 		emit_queue--;
-#endif		
+#endif
 		pthread_mutex_unlock(&emit_mutex);
 
 #ifdef UPTIME_TRICK
@@ -682,7 +682,7 @@ void *emit_thread()
 			peer_rot_cur = 0;
 			for (i = 0; i < npeers; i++) {
 				if (peers[i].type == PEER_MIRROR) goto sendreal;
-				if (peers[i].type == PEER_ROTATE) 
+				if (peers[i].type == PEER_ROTATE)
 					if (peer_rot_cur++ == peer_rot_work) {
 					sendreal:
 						if (netflow->SeqOffset)
@@ -723,7 +723,7 @@ void *emit_thread()
 #endif
 		}
 	}
-}	
+}
 
 void *unpending_thread()
 {
@@ -755,7 +755,7 @@ void *unpending_thread()
 			) < 0) {
 #if ((DEBUG) & DEBUG_I)
 			pkts_lost_unpending++;
-#endif				
+#endif
 		}
 
 #if ((DEBUG) & DEBUG_U)
@@ -832,7 +832,7 @@ void *scan_thread()
 						flows_emit = flow;
 #if ((DEBUG) & DEBUG_I)
 						emit_queue++;
-#endif				
+#endif
 						pthread_mutex_unlock(&emit_mutex);
 						flow = *flowpp;
 						continue;
@@ -1213,7 +1213,7 @@ int main(int argc, char **argv)
 			freeaddrinfo(res);
 		}
 	}
-	if (parms[uflag].count) 
+	if (parms[uflag].count)
 		if ((pw = getpwnam(parms[uflag].arg)) == NULL) {
 			fprintf(stderr, "getpwnam(%s): %s\n", parms[uflag].arg, errno ? strerror(errno) : "Unknown user");
 			exit(1);
