@@ -53,5 +53,6 @@ void my_log(unsigned level, const char *format, ...)
 
 		if (my_log_flags & MY_LOG_STDOUT)
 			fprintf(stdout, "%s%s\n", msg_prefix, msg);
+                va_end(args);
 	}
 }
